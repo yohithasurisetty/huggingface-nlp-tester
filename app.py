@@ -27,7 +27,8 @@ if uploaded_file:
     st.text("Classification Report:")
     st.text(clf_report)
 
-    st.pyplot(plot_confusion(cm))
+st.pyplot(plot_confusion(labels, preds))
+
 
     if st.button("Generate PDF Report"):
         generate_pdf_report(acc, clf_report, cm)
