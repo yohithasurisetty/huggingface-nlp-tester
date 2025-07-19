@@ -15,11 +15,9 @@ def generate_pdf_report(accuracy, report, cm):
 
     pdf.ln(10)
     pdf.set_font("Arial", size=10)
-    pdf.multi_cell(0, 5, txt="Classification Report:
-" + report)
+    pdf.multi_cell(0, 5, txt="Classification Report:" + report)
 
     pdf.ln(5)
-    pdf.multi_cell(0, 5, txt="Confusion Matrix:
-" + str(cm))
+    pdf.multi_cell(0, 5, txt="Confusion Matrix:" + str(cm))
 
     pdf.output("model_accuracy_report.pdf")
