@@ -1,4 +1,4 @@
-
+import torch
 from transformers import pipeline
 
 def load_model(model_name):
