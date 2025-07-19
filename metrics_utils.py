@@ -1,24 +1,24 @@
-
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import seaborn as sns
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 def evaluate_model(true, pred):
-    # Convert both lists to strings to prevent type mismatch
-
-true = [str(x).lower().strip() for x in true]
-pred = [str(x).lower().strip() for x in pred]
+    true = [str(x).lower().strip() for x in true]
+    pred = [str(x).lower().strip() for x in pred]
 
     acc = accuracy_score(true, pred)
     report = classification_report(true, pred)
     cm = confusion_matrix(true, pred)
     return acc, report, cm
 
+def plot_confusion(true, pred):
+    true = [str(x).lower().strip() for x in true]
+    pred = [str(x).lower().strip() for x in pred]
 
-def plot_confusion(cm):
-    fig, ax = plt.subplots()
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax)
-    ax.set_xlabel("Predicted")
-    ax.set_ylabel("Actual")
-    ax.set_title("Confusion Matrix")
-    return fig
+    cm = confusion_matrix(true, pred)
+    plt.figure(figsize=(6, 4))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.title("Confusion Matrix")
+    return plt
